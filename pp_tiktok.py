@@ -16,7 +16,7 @@ user = input('[+] Masukan username tiktok: ').replace('@','')
 r = req.get(f"https://www.tiktok.com/@{user}",headers={"user-agent":"chrome"}).text
 try:
 	link = re.findall('\<img\ loading\=\"lazy\" src\=\"(.*?)\" class\=\"tiktok.*?\"\/\>',str(r))[0]
-	with open(f"../download/{user}.jpeg","wb") as f:
+	with open(f"/sdcard/download/{user}.jpeg","wb") as f:
 		f.write(req.get(link).content)
 except:
 	exit('[!] Username tidak ditemukan')
